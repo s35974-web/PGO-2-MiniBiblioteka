@@ -17,5 +17,18 @@ public class Main {
         ksiazka3.wypozycz();
         ksiazka3.zwroc();
         ksiazka3.wypiszInfo();
+
+
+        Czytelnik czytelnik1 = new Czytelnik("Kamil", "Kowalski", 101, 0);
+        Czytelnik czytelnik2 = new Czytelnik("Julia", "Nowak", 102, 4);
+
+        czytelnik1.wypiszDane();
+        czytelnik2.wypiszDane();
+
+        czytelnik1.zwiekszLiczbeWypozyczen();
+        czytelnik1.wypiszDane();
+
+        czytelnik2.zmniejszLiczbeWypozyczen();
+        czytelnik2.wypiszDane();
     }
 }
