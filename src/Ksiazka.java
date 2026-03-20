@@ -36,4 +36,13 @@ public class Ksiazka {
             System.out.println("Ksiazka \"" + tytul + "\" juz jest dostepna");
         }
     }
+
+    //Do zadania 3
+    public boolean czyDostepna() {
+        return dostepna;
+    }
+
+    public boolean czyTytulJestTakiSam(String tytul) {
+        return this.tytul.equals(tytul);
+    }
 }

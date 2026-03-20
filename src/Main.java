@@ -18,7 +18,7 @@ public class Main {
         ksiazka3.zwroc();
         ksiazka3.wypiszInfo();
 
-
+        //testy do zadania 2
         Czytelnik czytelnik1 = new Czytelnik("Kamil", "Kowalski", 101, 0);
         Czytelnik czytelnik2 = new Czytelnik("Julia", "Nowak", 102, 4);
 
@@ -30,5 +30,27 @@ public class Main {
 
         czytelnik2.zmniejszLiczbeWypozyczen();
         czytelnik2.wypiszDane();
+
+        //testy do zadania 3
+
+        Biblioteka biblioteka = new Biblioteka(10);
+
+        biblioteka.dodajKsiazke(ksiazka1);
+        biblioteka.dodajKsiazke(ksiazka2);
+        biblioteka.dodajKsiazke(ksiazka3);
+
+        biblioteka.wypiszDostepneKsiazki();
+
+        Ksiazka znalezionaKsiazka = biblioteka.znajdzKsiazkePoTytule("Lalka");
+
+        if (znalezionaKsiazka != null) {
+            System.out.println("Znaleziono ksiazke:");
+            znalezionaKsiazka.wypiszInfo();
+        } else {
+            System.out.println("Nie znaleziono ksiazki");
+        }
+
+        int liczbaDostepnych = biblioteka.policzDostepneKsiazki();
+        System.out.println("Liczba dostepnych ksiazek: " + liczbaDostepnych);
     }
 }
