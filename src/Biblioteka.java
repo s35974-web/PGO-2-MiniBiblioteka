@@ -47,4 +47,60 @@ public class Biblioteka {
 
         return licznik;
     }
+
+    //Do zadania 4
+
+    public void wypozyczKsiazke(String tytul, Czytelnik czytelnik) {
+        Ksiazka ksiazka = znajdzKsiazkePoTytule(tytul);
+
+        if (ksiazka == null) {
+            System.out.println("Nie znaleziono ksiazki o tytule: " + tytul);
+            return;
+        }
+
+        if (ksiazka.czyDostepna()) {
+            ksiazka.wypozycz();
+            czytelnik.zwiekszLiczbeWypozyczen();
+            ksiazka.zwiekszLiczbeWypozyczenKsiazki();
+            System.out.println("Czytelnik wypozyczyl ksiazke: " + tytul);
+        } else {
+            System.out.println("Ksiazka o tytule \"" + tytul + "\" jest juz wypozyczona");
+        }
+    }
+
+    public void zwrocKsiazke(String tytul, Czytelnik czytelnik) {
+        Ksiazka ksiazka = znajdzKsiazkePoTytule(tytul);
+
+        if (ksiazka == null) {
+            System.out.println("Nie znaleziono ksiazki o tytule: " + tytul);
+            return;
+        }
+
+        if (!ksiazka.czyDostepna()) {
+            ksiazka.zwroc();
+            czytelnik.zmniejszLiczbeWypozyczen();
+            System.out.println("Czytelnik zwrocil ksiazke: " + tytul);
+        } else {
+            System.out.println("Nie mozna zwrocic ksiazka juz jest dostepna");
+        }
+    }
+
+    public void znajdzKsiazkiPoAutorze(String autor) {
+
+        boolean znaleziono = false;
+
+        System.out.println("Ksiazki autora: " + autor);
+
+        for (int i = 0; i < liczbaKsiazek; i++) {
+            if (ksiazki[i].getAutor().equals(autor)) {
+                ksiazki[i].wypiszInfo();
+                znaleziono = true;
+            }
+        }
+
+        if (!znaleziono) {
+            System.out.println("Nie znaleziono ksiazek tego autora");
+        }
+    }
+
 }

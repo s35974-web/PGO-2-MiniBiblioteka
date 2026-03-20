@@ -4,11 +4,14 @@ public class Ksiazka {
     private int liczbaStron;
     private boolean dostepna;
 
+    private int liczbaWypozyczen;
+
     public Ksiazka(String tytul, String autor, int liczbaStron, boolean dostepna) {
         this.tytul = tytul;
         this.autor = autor;
         this.liczbaStron = liczbaStron;
         this.dostepna = dostepna;
+        this.liczbaWypozyczen = 0;
     }
 
     public void wypiszInfo() {
@@ -16,6 +19,7 @@ public class Ksiazka {
         System.out.println("Autor: " + autor);
         System.out.println("Liczba stron: " + liczbaStron);
         System.out.println("Dostepna: " + dostepna);
+        System.out.println("Liczba wypozyczen: " + liczbaWypozyczen);
         System.out.println();
     }
 
@@ -44,5 +48,22 @@ public class Ksiazka {
 
     public boolean czyTytulJestTakiSam(String tytul) {
         return this.tytul.equals(tytul);
+    }
+
+    //Do zadania 4
+    public String getTytul() {
+        return tytul;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public int getLiczbaWypozyczen() {
+        return liczbaWypozyczen;
+    }
+
+    public void zwiekszLiczbeWypozyczenKsiazki() {
+        liczbaWypozyczen++;
     }
 }
